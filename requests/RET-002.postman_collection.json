@@ -1,0 +1,191 @@
+{
+  "info": {
+    "_postman_id": "ret-002-collection",
+    "name": "TP Integrador - RET-002",
+    "description": "Colección de peticiones para verificar el límite de cuatro butacas ocupantes por usuario y evento.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "event_id",
+      "value": "evento-demo"
+    },
+    {
+      "key": "user_id",
+      "value": "usuario-coleccion"
+    }
+  ],
+  "item": [
+    {
+      "name": "Listar eventos",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/events",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "events"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar butacas del evento",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/events/{{event_id}}/seats",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "events",
+            "{{event_id}}",
+            "seats"
+          ]
+        }
+      }
+    },
+    {
+      "name": "RET-002 - Butaca 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"seat_id\": \"butaca-1\",\n  \"user_id\": \"{{user_id}}\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/events/{{event_id}}/holds",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "events",
+            "{{event_id}}",
+            "holds"
+          ]
+        }
+      }
+    },
+    {
+      "name": "RET-002 - Butaca 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"seat_id\": \"butaca-2\",\n  \"user_id\": \"{{user_id}}\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/events/{{event_id}}/holds",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "events",
+            "{{event_id}}",
+            "holds"
+          ]
+        }
+      }
+    },
+    {
+      "name": "RET-002 - Butaca 3",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"seat_id\": \"butaca-3\",\n  \"user_id\": \"{{user_id}}\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/events/{{event_id}}/holds",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "events",
+            "{{event_id}}",
+            "holds"
+          ]
+        }
+      }
+    },
+    {
+      "name": "RET-002 - Butaca 4",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"seat_id\": \"butaca-4\",\n  \"user_id\": \"{{user_id}}\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/events/{{event_id}}/holds",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "events",
+            "{{event_id}}",
+            "holds"
+          ]
+        }
+      }
+    },
+    {
+      "name": "RET-002 - Quinta butaca debe rechazar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"seat_id\": \"butaca-5\",\n  \"user_id\": \"{{user_id}}\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/events/{{event_id}}/holds",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "events",
+            "{{event_id}}",
+            "holds"
+          ]
+        }
+      }
+    }
+  ]
+}
